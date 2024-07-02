@@ -1,7 +1,7 @@
 public class Oops {
     public static void main(String[] args) {
-
-        Dog d1 = new Dog();
+    // creating a Dog class , Dog() object is created
+        Dog d1 = new Dog(); // you are indeed creating a new instance of the Dog class using its constructor
         d1.name = "Tommy";
         d1.bark();
 
@@ -10,7 +10,7 @@ public class Oops {
         d2.bark("manisha");
 
     }
-
+    // defined a static nested class 'Dog'.
     static class Dog{
         String name;
         int age;
