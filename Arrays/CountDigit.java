@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class CountDigit {
     public static void main(String[] args) {
@@ -10,6 +13,8 @@ public class CountDigit {
         System.out.println("2. Find no.of digits");
         System.out.println("3. Reverse the number");
         System.out.println("4. Check Palindrome number");
+        System.out.println("5. Print all divisors");
+        // System.out.println("6. Minimum jumps");
         int solve = sc.nextInt();
         switch (solve) {
             case 1:
@@ -24,6 +29,12 @@ public class CountDigit {
             case 4:
                 isPalindromeNum(n);
                 break;
+            case 5:
+                printAllDivisors(n);
+                break;
+            // case 6:
+            //     printMinimumJumps(n);
+            //     break;
             default:
             System.out.println("Invalid type");
                 break;
@@ -107,4 +118,31 @@ public class CountDigit {
         return status;
     }
     
+    public static List<Integer> printAllDivisors(int n){
+        List<Integer> divisors = new ArrayList<>();
+        int sqrt = (int) Math.sqrt(n);
+        for(int i=1; i<=sqrt; i++){
+            if(n%i ==0){
+                divisors.add(i);
+            
+            
+            if(i != n/i){
+                divisors.add(n/i);
+            }
+        }
+        }
+        Collections.sort(divisors);
+        System.out.println(divisors);
+        return divisors;
+    }
+
+    // public static int printMinimumJumps(int n){
+    //     int jumps = 0;
+    //     int currEnd = 0;
+    //     int currFarthest = 0;
+        
+        
+    //     if()
+    // }
+
 }
