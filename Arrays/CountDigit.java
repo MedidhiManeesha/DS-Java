@@ -6,16 +6,40 @@ import java.util.List;
 public class CountDigit {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter number:");
-        int n = sc.nextInt();
+        
         System.out.println("Select your solution type");
         System.out.println("1. print all Digits");
         System.out.println("2. Find no.of digits");
         System.out.println("3. Reverse the number");
         System.out.println("4. Check Palindrome number");
         System.out.println("5. Print all divisors");
-        // System.out.println("6. Minimum jumps");
+        System.out.println("6. Minimum jumps");
+        System.out.println("7. Prime number or not");
         int solve = sc.nextInt();
+        sc.nextLine(); 
+
+        int n = 0;
+        ArrayList<Integer> arr = new ArrayList<>();
+
+        if (solve == 6) {
+            System.out.println("Enter the array numbers, type 'done' when finished:");
+            while (true) {
+                String input = sc.nextLine();
+                if (input.equalsIgnoreCase("done")) {
+                    break;
+                }
+                try {
+                    int num = Integer.parseInt(input);
+                    arr.add(num);
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter an integer or type 'done' to finish.");
+                }
+            }
+        } else {
+            System.out.println("Enter number:");
+            n = sc.nextInt();
+        }
+
         switch (solve) {
             case 1:
                 printDigits(n);
@@ -32,9 +56,12 @@ public class CountDigit {
             case 5:
                 printAllDivisors(n);
                 break;
-            // case 6:
-            //     printMinimumJumps(n);
-            //     break;
+            case 6:
+                printMinimumJumps(arr);
+                break;
+            case 7:
+                printPrimeNum(n);
+                break;
             default:
             System.out.println("Invalid type");
                 break;
@@ -136,13 +163,52 @@ public class CountDigit {
         return divisors;
     }
 
-    // public static int printMinimumJumps(int n){
-    //     int jumps = 0;
-    //     int currEnd = 0;
-    //     int currFarthest = 0;
+    public static int printMinimumJumps(ArrayList<Integer> arr){
+        System.out.println(arr);
+        int n = arr.size();
+        int jumps = 0;
+        int currEnd = 0;
+        int currFarthest = 0;
         
-        
-    //     if()
-    // }
+        for(int i=0; i<n-1; i++){
+            if(n<=1){
+                System.out.println("0");
+                return 0;
+                
+            }
+            currFarthest = Math.max(currFarthest, i+arr.get(i));
+            if(currEnd == i){
+                jumps++;
+                currEnd = currFarthest;
+            
+            if(currEnd >= n-1){
+                System.out.println("It has reached with "+jumps+" jumps");
+                return jumps;
+                
+            }
+        }
+    }
+    System.out.println("cannot reach to end");
+    return -1;
+    }
 
+
+    public static void printPrimeNum(int n){
+        int count = 0;
+        
+        for(int i=1; i*i<=n;i++){
+            if(n%i == 0){
+                count++;
+                if((n/i) != i){
+                    count++;    
+                }   
+            }
+        }
+        if(count == 2){
+            System.out.println("It is a prime");
+            
+        }else{
+            System.out.println("It is not a prime");
+        }
+    }
 }
