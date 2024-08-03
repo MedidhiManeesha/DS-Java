@@ -192,7 +192,6 @@ public class CountDigit {
     return -1;
     }
 
-
     public static void printPrimeNum(int n){
         int count = 0;
         
