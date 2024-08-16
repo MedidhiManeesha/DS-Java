@@ -3,13 +3,14 @@ public class BubbleSort {
         int[] array = {13,46,20,24,52,9};
         createBubbleSort(array);
         PrintBubble(array);
-        
     }
+
     public static void SwapNums(int[] arr, int i, int j){
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
     public static void createBubbleSort(int[] arr){
         int n = arr.length;
         int didSwap = 0;
@@ -22,16 +23,15 @@ public class BubbleSort {
             }
             if(didSwap == 0){
                 break;
-            }
-            
+            }    
         }
-        
-
     }
+
     public static void PrintBubble(int[] arr){
         for(int i:arr){
             System.out.print(i+" ");
         }
         System.out.println();
     }
+    
 }

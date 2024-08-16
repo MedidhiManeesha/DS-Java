@@ -3,8 +3,8 @@ public class Insertion {
         int[] array = {6,7,4,2,45,3,6};
         createInsertionSort(array);
         PrintSort(array);
-        
     }
+    
     public static void SwapNums(int[] arr, int i, int j){
         int temp = arr[i];
         arr[i] = arr[j];
